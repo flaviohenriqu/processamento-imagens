@@ -6,29 +6,6 @@ import cv2
 import numpy as np
 from PIL import Image
 from PIL import ImageOps
-import os
-import tempfile
-
-total = 0
-cont = 0
-PATH = os.getcwd()
-
-
-def segmentation(path, name):
-    global total, cont
-
-    path_full = PATH + path + name
-
-    if not os.path.exists(path_full):
-        print('file not found.')
-        return
-
-    with open(path_full) as f:
-        for item in f.read().split('\n'):
-            image = ''.join(PATH, path, item)
-            if os.path.exists(image):
-                tmp = process(image)
-                cv2.imwrite(tempfile.TemporaryFile(), tmp)
 
         
 def process(img, debug=False):
